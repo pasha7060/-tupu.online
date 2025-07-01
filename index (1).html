@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Открытие...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      height: 100%;
+      width: 100%;
+    }
+    img {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+  <img src="open_browser.jpg" alt="" />
+
+  <script>
+    const redirectURL = "http://link.me/tg.gowero77";
+    const ua = navigator.userAgent.toLowerCase();
+    const isInApp = /instagram|fbav|tiktok|webview|vk|okhttp|line|micromessenger|telegram/.test(ua);
+
+    if (!isInApp) {
+      // если открыто в браузере — редирект
+      window.location.href = redirectURL;
+    }
+  </script>
+</body>
+</html>
+
+
+
