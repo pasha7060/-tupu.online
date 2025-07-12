@@ -2,37 +2,39 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Открытие...</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Открой в браузере</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      background: #000;
       height: 100%;
-      width: 100%;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     img {
+      max-width: 100%;
+      max-height: 100%;
       display: block;
-      width: 100vw;
-      height: 100vh;
-      object-fit: contain;
     }
   </style>
 </head>
 <body>
-  <img src="123456789.jpg" alt="" />
 
-  <script>
-    const redirectURL = "https://prev.affomelody.com/click?pid=107337&offer_id=25&sub7=YouTube";
-    const ua = navigator.userAgent.toLowerCase();
-    const isInApp = /instagram|fbav|tiktok|webview|vk|okhttp|line|micromessenger|telegram/.test(ua);
+<img src="open_browser.jpg" alt="Открой в браузере">
 
-    if (!isInApp) {
-      // если открыто в браузере — редирект
-      window.location.href = redirectURL;
-    }
-  </script>
+<script>
+  // Проверяем referrer
+  const ref = document.referrer || '';
+
+  // Если нет реферера или referrer не содержит tiktok, считаем что открыт в обычном браузере
+  if (ref === '' || (!ref.includes('tiktok.com') && !ref.includes('tiktok'))) {
+    window.location.href = "https://prev.affomelody.com/click?pid=107337&offer_id=25";
+  }
+</script>
+
 </body>
 </html>
 
